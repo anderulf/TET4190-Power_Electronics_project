@@ -8,21 +8,17 @@ This project has multiple files used to calculate different components written i
 
 To run the inductor design algorithm:
 
-
-  Under inductor design (make sure auxillary.py is in same folder)
-  
-  
-  run main.py
+    Under inductor design (make sure auxillary.py is in same folder)
+ 
+    run main.py
   
   
   
 To run the capacitor choice script:
 
-
-  Under capacitor
+    Under capacitor
   
-  
-  run capacitor_choice.m
+    run capacitor_choice.m
   
   
   

@@ -1,5 +1,7 @@
 # TET4190-Power_Electronics_project
-\n
+
+
+
 This project has multiple files used to calculate different components written in python and matlab\n
 \n
 To run the inductor design algorithm:\n

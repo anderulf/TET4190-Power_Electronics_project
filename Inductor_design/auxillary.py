@@ -5,14 +5,12 @@ class Inductor_design():
     This class holds the data for the general system and should treat the iterative process isolated so that
     the main algorithm can treat this class as a black box
     """
-    def __init__(self,a_initial, a_step, a_max, inductance_goal, copper_fill_factor, current_density_rms, flux_density_peak, mass_density_core, mass_density_copper):
+    def __init__(self,a_initial, a_step, a_max, copper_fill_factor, flux_density_peak, mass_density_core, mass_density_copper):
         self.air_permability = 1.25663706212*10**-6 # equal to vaccum
         # Set from input data
         self.a_step = a_step
         self.a_max = a_max
-        self.inductance_goal = inductance_goal
         self.copper_fill_factor = copper_fill_factor
-        self.current_density_rms = current_density_rms
         self.flux_density_peak = flux_density_peak
         self.mass_density_core = mass_density_core
         self.mass_density_copper = mass_density_copper
@@ -21,6 +19,8 @@ class Inductor_design():
         # Initialize variables
         self.inductance = 0
         self.inductance_max = 0
+        self.inductance_goal = 0
+        self.current_density_rms = 0
         self.frequency = 0
         self.flux_density_ac = 0
         self.specific_winding_loss = 0
@@ -169,7 +169,7 @@ class Inductor_design():
             "Verification of turns: the ratio between the winding area and the area utilized by the cable is {}%\n" \
             "Specific losses: specific core loss: {} W/m3, specifid winding loss: {} W/m3\n" \
             "Losses: winding loss: {} W, core loss: {} W, total losses: {} W\n" \
-            "Weight: winding weight: {} kg, copper weight: {} kg, total weight: {} kg".format(round(1000*self.inductance,3), round(1000*self.inductance_goal,3), round(1000*self.inductance_max,3), self.number_of_airgaps, round(100 * self.accumulated_airgap_length/self.number_of_airgaps, 3), self.number_of_turns, round(self.A_cu * 1000 ** 2, 3), round((self.A_cu/self.copper_fill_factor*self.number_of_turns)/self.core.A_core*100,3), round(self.specific_core_loss,3) , round(self.specific_winding_loss,3) ,round(winding_loss, 3), round(core_loss, 3), round(winding_loss + core_loss, 3), round(self.winding_weight, 3), round(self.core_weight, 3), round(self.winding_weight + self.core_weight, 3))
+            "Weight: winding weight: {} kg, copper weight: {} kg, total weight: {} kg\n".format(round(1000*self.inductance,3), round(1000*self.inductance_goal,3), round(1000*self.inductance_max,3), self.number_of_airgaps, round(100 * self.accumulated_airgap_length/self.number_of_airgaps, 3), self.number_of_turns, round(self.A_cu * 1000 ** 2, 3), round((self.A_cu/self.copper_fill_factor*self.number_of_turns)/self.core.A_core*100,3), round(self.specific_core_loss,3) , round(self.specific_winding_loss,3) ,round(winding_loss, 3), round(core_loss, 3), round(winding_loss + core_loss, 3), round(self.winding_weight, 3), round(self.core_weight, 3), round(self.winding_weight + self.core_weight, 3))
         return s
 
 
@@ -215,6 +215,6 @@ class Core():
         """
         Defines how the object is serialized to a string
         """
-        s = "Core dimensions:\na = {} cm, b_a = {} cm, d = {} cm, h_a = {} cm\nb_w = {} cm, h_w = {} cm, A_core = {} cm2, A_w = {} cm2,\nCore volume= {} cm3, winding volume = {} cm3".format(
-            round(100*self.a,3), round(100*self.b_a,3), round(100*self.d,3), round(100*self.h_a,3), round(100*self.b_w,3), round(100*self.h_w,3), round(100**2*self.A_core, 3), round(100**2*self.A_w,3), round(100**3*self.core_volume, 3), round(100**3*self.winding_volume,3))
+        s = "Core dimensions:\na = {} cm, b_a = {} cm, d = {} cm, h_a = {} cm\nb_w = {} cm, h_w = {} cm, A_core = {} cm2, A_w = {} cm2,\nCore volume= {} cm3, winding volume = {} cm3. Total volume = {} cm3".format(
+            round(100*self.a,3), round(100*self.b_a,3), round(100*self.d,3), round(100*self.h_a,3), round(100*self.b_w,3), round(100*self.h_w,3), round(100**2*self.A_core, 3), round(100**2*self.A_w,3), round(100**3*self.core_volume, 3), round(100**3*self.winding_volume,3), round(100**3*(self.winding_volume+self.core_volume), 3))
         return s

@@ -11,6 +11,14 @@ Running the script for frequency = 53kHz and J_rms = 2A/mm2 will give the found 
 
 The script creates an inductor design object from auxillary.py to store information about the inductor
 
+Inductor currents at different load currents 
+2A - 3.3478A
+3A - 5.0217A
+4A - 6.6957A
+5A - 8.3696A
+6A - 10.0435A
+7A - 11.7174A
+
 Version 2.0 
     Optimizes for 20%-70% instead of 100% 
 """
@@ -22,7 +30,6 @@ Settings
 a_initial = 0.005 #m
 a_step = 0.00001 #m
 a_max = 0.1 #m
-load_current = 2 # possible: 2, 3, 4, 5, 6, 7, 10A
 frequency_start = 53000 # Hz
 frequency_step = 1000 # Hz
 frequency_stop = 54000 # Hz
@@ -33,21 +40,7 @@ J_rms_stop = 3*10**6 # A/m2
 """
 Input data
 """
-inductance_goal = 4.8125*10**-3 #H
-
-
-"""
-Inductor currents at different load currents 
-2A - 3.3478A
-3A - 5.0217A
-4A - 6.6957A
-5A - 8.3696A
-6A - 10.0435A
-7A - 11.7174A
-"""
-
 copper_fill_factor = 0.3 # litz cable
-current_density_rms = 2*10**6 #A/m^2 (based on cable cross section)
 flux_density_peak = 0.325 #T
 
 mass_density_copper = 8960 #kg/m3 from https://www.rsc.org/
@@ -60,8 +53,8 @@ skip it, if it does calculate all required values. Now stop iterating because in
 losses as the volume increases. 
 """
 
-sys = Inductor_design(a_initial, a_step, a_max, inductance_goal,
-                          copper_fill_factor, current_density_rms, flux_density_peak, mass_density_core, mass_density_copper)
+sys = Inductor_design(a_initial, a_step, a_max,
+                          copper_fill_factor, flux_density_peak, mass_density_core, mass_density_copper)
 losses = {} # dictionary to hold loss data
 # Lists sent to matlab for plotting total losses with DIODE and MOSFET aswell
 losses_arry = []

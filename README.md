@@ -37,6 +37,6 @@ To run the mosfet and diode loss script:
 
     Under frequency
   
-    run frequency_choice.m 
+    run frequency_selection.m 
     
     

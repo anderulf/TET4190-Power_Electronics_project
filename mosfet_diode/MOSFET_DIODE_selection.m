@@ -1,9 +1,13 @@
+## -------------------------
+# Script written to find the best mostfet and diode combination
+# --------------------------
+
 %% Common constans
-Vd=230*0.9;
-V0=385;
+Vd=230*0.9; # rectified voltage
+V0=385; # output voltage
 
 D=1-(Vd/V0); %Duty cycle
-I_D_avg=4; %average load current
+I_D_avg=4; %average load current (within operation range 2A - 7A)
 total_losses=zeros(133,5);
 P_on_mos_sic=zeros(133,1);
 P_on_mos_si=zeros(133,1);

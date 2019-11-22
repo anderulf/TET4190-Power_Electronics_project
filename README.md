@@ -1,6 +1,7 @@
 # TET4190-Power_Electronics_project
 
 By: Anders Ulfsnes, Trude Birgitte Byre, Johan P. Hald, Ole Martin M. Flatjord, and Kjeld Fjeldberg
+
 For: Project in TET4190 at NTNU
 
 This project has multiple files used to calculate different components written in python and matlab

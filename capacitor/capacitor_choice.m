@@ -1,10 +1,10 @@
 clear all
 clc
 
-# ---------------------------
-# All values are taken from the capacitor datasheets. Assumption: 400V values used as these are assumed to be more or 
-# less equal to the 385V values. 
-# ---------------------------
+%% --------------------------
+% All values are taken from the capacitor datasheets. Assumption: 400V values used as these are assumed to be more or 
+% less equal to the 385V values. 
+% ---------------------------
 
 % Needed capacitance for ripple requirement
 capacitance_goal = 2.2*10^-3;

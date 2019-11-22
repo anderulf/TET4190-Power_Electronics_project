@@ -1,6 +1,6 @@
-## -------------------------
-# Script written to find the best mostfet and diode combination
-# --------------------------
+%% -------------------------
+% Script written to find the best mostfet and diode combination
+% --------------------------
 
 %% Common constans
 Vd=230*0.9; # rectified voltage

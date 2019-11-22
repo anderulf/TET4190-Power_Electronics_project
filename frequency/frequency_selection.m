@@ -1,9 +1,9 @@
-## --------------------------
-# Script used to find the optimal switching frequency.
-# It takes inputted values from the inductor design algorithm. It also calculated the mosfet and diode losses.
-# The average losses (inductor + mosfet + diode) for the range 20%-70% operation are plotted to find the switching combination
-# of frequency and cable size in the inductor in which minimises the losses. 
-# ---------------------------
+%% --------------------------
+% Script used to find the optimal switching frequency.
+% It takes inputted values from the inductor design algorithm. It also calculated the mosfet and diode losses.
+% The average losses (inductor + mosfet + diode) for the range 20%-70% operation are plotted to find the switching combination
+% of frequency and cable size in the inductor in which minimises the losses. 
+% ---------------------------
 
 %% Common constans
 Vd=230*0.9;

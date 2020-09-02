@@ -8,7 +8,7 @@ This project has multiple files used to calculate different components written i
 
 
 Inductor:
-It uses an iterative algorithm from Mohan "Power Electronics: converters, applications and design" 3rd ediotion
+It uses an iterative algorithm from Mohan "Power Electronics: converters, applications and design" 3rd edition
 
 To run the inductor design algorithm go to the folder inductor design:
  
